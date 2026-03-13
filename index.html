@@ -5,31 +5,6 @@
 <body>
 
 
-  <script>
-    // Cegah masuk fullscreen lewat JavaScript
-    document.addEventListener('fullscreenchange', () => {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      }
-    });
-
-    // Proteksi klik kanan dan F12
-    (function () {
-      document.addEventListener('contextmenu', function (e) {
-        if (!e.target.closest('.allow-context, iframe')) {
-          e.preventDefault();
-        }
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === "F12") e.preventDefault();
-        if (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) e.preventDefault();
-        if (e.ctrlKey && ["U","S"].includes(e.key.toUpperCase())) e.preventDefault();
-      });
-    })();
-  </script>
-
-
    <!-- Histats.com  START  (aync)-->
 <script type="text/javascript">var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,5007039,4,0,0,0,00010000']);
