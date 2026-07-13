@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="monetag" content="1f83e1a780609f53ae6ec0a63593ed62">
-  <title>Vidaycoi — Your video gallery</title>
-  <link rel="stylesheet" href="assets/home.css">
-  <link rel="stylesheet" href="assets/admin.css">
+  <title>Watch</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="stylesheet" href="assets/watch.css">
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
@@ -21,201 +20,160 @@
       });
     }
   </script>
-  <script src="https://5gvci.com/act/files/tag.min.js?z=11094294" data-cfasync="false" async></script>
-  <script>(function(s){s.dataset.zone='11094290',s.src='https://llvpn.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script src="https://5gvci.com/act/files/tag.min.js?z=11094294" data-cfasync="false" async></script>
+<script>(function(s){s.dataset.zone='11278971',s.src='https://dd133.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 </head>
 <body>
 
-<nav>
-  <div class="nav-wrap">
-    <a href="index.html" class="logo"><span class="dot"></span>Vidaycoi</a>
-    <div class="nav-actions">
-      <button class="nav-admin login-trigger" id="adminLoginBtn" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-        Login
-      </button>
-      <button class="nav-btn guest-only" id="openUploadPublic" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg>
-        Upload
-      </button>
-
-      <span class="admin-pill admin-only" id="adminPill">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5z"></path></svg>
-        Admin
-      </span>
-      <button class="nav-admin admin-only" id="adminManageBtn" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-        Manage
-      </button>
-      <button class="nav-btn admin-only" id="openUpload" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg>
-        Upload
-      </button>
-      <button class="nav-admin admin-only" id="adminLogoutBtn" type="button" title="Sign out">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<main>
-  <section class="trending" id="trendingSection" hidden>
-    <div class="trending-head">
-      <h2 class="trending-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg>
-        Trending now
-      </h2>
-    </div>
-    <div class="trending-grid" id="trendingGrid"></div>
-  </section>
-
-  <div class="gallery-controls" id="galleryControls">
-    <div class="search" id="searchBox">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="search" id="searchInput" placeholder="Search videos…" autocomplete="off">
-      <button class="search-clear" id="searchClear" type="button" aria-label="Clear search" hidden>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
-      </button>
-    </div>
-    <div class="seg" id="sortSeg">
-      <button class="seg-btn active" data-sort="newest" type="button">Newest</button>
-      <button class="seg-btn" data-sort="popular" type="button">Popular</button>
-    </div>
-  </div>
-  <div class="grid" id="grid">
-    <div class="state" id="loadingState"><p>Loading…</p></div>
-  </div>
-  <div class="gallery-head">
-    <h1>All videos</h1>
-    <span class="count" id="count"></span>
-  </div>
-
-</main>
-
-<footer>
-  <a href="about.html">About</a>
-  <a href="privacy.html">Privacy</a>
-  <a href="tos.html">Terms</a>
-  <a href="abuse.html">Report a problem</a>
-</footer>
-
-<div class="modal-overlay" id="uploadModal">
-  <div class="modal">
-    <div class="modal-head">
-      <h2>Upload a video</h2>
-      <button class="modal-close" id="closeUpload" type="button" aria-label="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
-      </button>
-    </div>
-
-    <div class="up-mode" id="upMode">
-      <div class="seg" role="tablist">
-        <button class="seg-btn active" id="modeDirect" data-mode="direct" type="button" role="tab">Upload directly</button>
-        <button class="seg-btn" id="modeCut" data-mode="cut" type="button" role="tab">Auto-cut to 30s</button>
+  <header class="hdr">
+    <div class="wrap">
+      <div class="hdr-row">
+        <a href="index.html" class="logo"><span class="dot"></span>Vidaycoi</a>
+        <a href="index.html" class="upload">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg>
+          <span data-i18n="upload">Upload</span>
+        </a>
       </div>
-      <p class="up-mode-hint" id="upModeHint">Publish your MP4 as-is.</p>
     </div>
+  </header>
 
-    <div class="dropzone" id="dropzone">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-      <div class="dz-title">Drop an MP4 here, or click to browse</div>
-      <div class="dz-sub">MP4 only · up to 500 MB</div>
-      <input type="file" id="fileInput" accept="video/mp4,.mp4">
-    </div>
+  <main class="main">
+    <div id="player" class="player" data-state="idle">
+      <video id="video" class="video" playsinline preload="metadata" controlslist="nodownload"></video>
 
-    <div class="trim-progress" id="trimProgress">
-      <div class="field-label">Cutting a random 30 seconds…</div>
-      <div class="prog-track"><div class="prog-fill" id="trimFill"></div></div>
-      <div class="prog-label"><span id="trimStatus">Preparing…</span><span id="trimPct">0%</span></div>
-      <p class="trim-note">Keep this tab open — the clip is processed right here in your browser.</p>
-    </div>
+      <div id="poster" class="poster" aria-hidden="true"></div>
 
-    <div class="upload-form" id="uploadForm">
-      <div class="preview-row">
-        <img class="preview-thumb" id="previewThumb" alt="">
-        <div style="min-width:0">
-          <div class="preview-name" id="previewName">video.mp4</div>
-          <div class="preview-size" id="previewSize">—</div>
+      <button id="bigPlay" class="bigplay" type="button" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+      </button>
+      <div id="playHint" class="play-hint" aria-hidden="true"><span data-i18n="tapToPlay">Tap to play</span></div>
+      <div id="flash" class="flash" aria-hidden="true"></div>
+      <div id="spinner" class="spin" hidden></div>
+
+      <div id="controls" class="controls">
+        <div id="scrubber" class="scrub">
+          <div class="track">
+            <div id="buffered" class="buffered"></div>
+            <div id="progress" class="progress"></div>
+          </div>
+          <div id="scrubThumb" class="scrub-thumb"></div>
+        </div>
+        <div class="cbar">
+          <button id="playBtn" class="cbtn" type="button" aria-label="Play / pause">
+            <svg id="iconPlay" class="ic" viewBox="0 0 24 24" fill="#E5E7EB" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+            <svg id="iconPause" class="ic" hidden viewBox="0 0 24 24" fill="#E5E7EB" aria-hidden="true"><rect x="14" y="3" width="5" height="18" rx="1"></rect><rect x="5" y="3" width="5" height="18" rx="1"></rect></svg>
+          </button>
+
+          <div class="vol">
+            <button id="muteBtn" class="cbtn" type="button" aria-label="Mute">
+              <svg id="iconVol" class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z" style="fill: rgb(255, 255, 255)"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14" style="fill: rgb(255, 255, 255)"></path></svg>
+              <svg id="iconMute" class="ic" hidden viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor"></path><path d="M16.6 9.6l4.8 4.8M21.4 9.6l-4.8 4.8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path></svg>
+            </button>
+            <input id="volume" class="vrange" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+          </div>
+
+          <div class="time"><span id="curTime">0:00</span> / <span id="durTime">0:00</span></div>
+
+          <div class="cright">
+            <button id="settingsBtn" class="cbtn" type="button" aria-label="Settings">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </button>
+            <div id="settingsMenu" class="menu" hidden>
+              <div class="menu-title" data-i18n="speed">Speed</div>
+              <button class="speed" data-speed="0.5" type="button">0.5x</button>
+              <button class="speed" data-speed="1" type="button" data-i18n="normal">Normal</button>
+              <button class="speed" data-speed="1.5" type="button">1.5x</button>
+              <button class="speed" data-speed="2" type="button">2x</button>
+            </div>
+            <button id="pipBtn" class="cbtn" type="button" aria-label="Picture in picture">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 9V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h4"></path><rect width="10" height="7" x="12" y="13" rx="2"></rect></svg>
+            </button>
+            <button id="fsBtn" class="cbtn" type="button" aria-label="Fullscreen">
+              <svg id="iconFsOn" class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"></path><path d="M21 8V5a2 2 0 0 0-2-2h-3"></path><path d="M3 16v3a2 2 0 0 0 2 2h3"></path><path d="M16 21h3a2 2 0 0 0 2-2v-3"></path></svg>
+              <svg id="iconFsOff" class="ic" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v3a2 2 0 0 1-2 2H3"></path><path d="M21 8h-3a2 2 0 0 1-2-2V3"></path><path d="M3 16h3a2 2 0 0 1 2 2v3"></path><path d="M16 21v-3a2 2 0 0 1 2-2h3"></path></svg>
+            </button>
+          </div>
         </div>
       </div>
-      <label class="field-label" for="titleInput">Title</label>
-      <input type="text" id="titleInput" placeholder="Give your video a title" maxlength="120">
-      <label class="rights">
-        <input type="checkbox" id="rights">
-        <span>I own this video or have the right to share it publicly.</span>
-      </label>
-      <div class="form-actions">
-        <button class="btn-ghost" id="cancelUpload" type="button">Cancel</button>
-        <button class="btn-primary" id="startUpload" style="flex:1" disabled>Publish video</button>
+
+      <div id="nextOverlay" class="next-ov" hidden>
+        <div class="next-card">
+          <div class="next-label">Up next in <span id="nextCount">5</span></div>
+          <div class="next-thumb"><img id="nextThumb" alt=""></div>
+          <div class="next-title" id="nextTitle"></div>
+          <div class="next-actions">
+            <button id="nextCancel" class="next-btn ghost" type="button">Cancel</button>
+            <button id="nextNow" class="next-btn solid" type="button">Play now</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="up-progress" id="upProgress">
-      <div class="field-label" id="progName">Uploading…</div>
-      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
-      <div class="prog-label"><span id="progStatus">Uploading…</span><span id="progPct">0%</span></div>
-    </div>
-
-    <div class="up-success" id="upSuccess">
-      <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-      <h3>Published!</h3>
-      <div class="link-group-label">Watch page</div>
-      <div class="link-row">
-        <span id="watchLink">—</span>
-        <button class="copy-btn" data-target="watchLink">Copy</button>
+    <div class="info">
+      <h1 class="v-title" id="videoTitle" data-i18n="untitled">Untitled</h1>
+      <div class="v-meta">
+        <span id="viewCount">0 views</span>
+        <span>·</span>
+        <span id="uploadedAt">just now</span>
       </div>
-      <div class="link-group-label">Embed code</div>
-      <div class="link-row">
-        <span id="embedLink">—</span>
-        <button class="copy-btn" data-target="embedLink">Copy</button>
+      <div class="actions">
+        <div class="share-wrap">
+        <button class="act" id="shareBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+          <span id="shareLabel" data-i18n="share">Share</span>
+        </button>
+        <div class="share-pop" id="sharePop" hidden>
+          <button class="share-opt" id="shareCopy" type="button">
+            <span class="share-ic" style="background:#eef2f7;color:#0B1220"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></span>
+            <span class="share-txt" id="shareCopyTxt">Copy link</span>
+          </button>
+          <a class="share-opt" id="shareX" target="_blank" rel="noopener">
+            <span class="share-ic" style="background:#0B1220;color:#fff"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></span>
+            <span class="share-txt">Share on X</span>
+          </a>
+          <a class="share-opt" id="shareReddit" target="_blank" rel="noopener">
+            <span class="share-ic" style="background:#ff4500;color:#fff"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"></path></svg></span>
+            <span class="share-txt">Share on Reddit</span>
+          </a>
+          <a class="share-opt" id="shareFb" target="_blank" rel="noopener">
+            <span class="share-ic" style="background:#1877f2;color:#fff"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></span>
+            <span class="share-txt">Share on Facebook</span>
+          </a>
+        </div>
+        </div>
       </div>
-      <div class="success-actions">
-        <button class="btn-ghost" id="uploadAnother">Upload another</button>
-        <button class="btn-primary" id="viewVideo" style="flex:1">Watch it</button>
+    </div>
+
+    <section class="related" id="relatedWrap" hidden>
+      <div class="related-head">
+        <h2 class="related-title" data-i18n="upNext">Up next</h2>
+        <button id="autoToggle" class="autoplay" role="switch" aria-checked="true" type="button">
+          <span class="autoplay-label">Autoplay</span>
+          <span class="switch"><span class="knob"></span></span>
+        </button>
       </div>
-    </div>
-  </div>
-</div>
+      <div class="related-grid" id="relatedGrid"></div>
+    </section>
+  </main>
 
-<div class="admin-overlay" id="adminLogin">
-  <div class="admin-modal login">
-    <div class="admin-head">
-      <h2>Admin sign in</h2>
-      <button class="admin-close" id="adminLoginClose" type="button" aria-label="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
-      </button>
-    </div>
-    <p class="admin-sub">Only the site admin can upload videos and choose which ones appear on the home page.</p>
-    <label class="admin-field-label" for="adminPw">Admin password</label>
-    <input type="password" id="adminPw" class="admin-input" placeholder="••••••••" autocomplete="current-password">
-    <div class="admin-error" id="adminLoginErr"></div>
-    <div class="admin-actions">
-      <button class="btn-primary" id="adminLoginSubmit" type="button" style="flex:1">Sign in</button>
-    </div>
-  </div>
-</div>
+  <footer class="ftr">
+    <a href="index.html" data-i18n="allVideos">All videos</a>
+    <a href="about.html" data-i18n="about">About</a>
+    <a href="privacy.html" data-i18n="privacy">Privacy</a>
+  </footer>
 
-<div class="admin-overlay" id="adminManage">
-  <div class="admin-modal manage">
-    <div class="admin-head">
-      <h2>Manage home page</h2>
-      <button class="admin-close" id="adminManageClose" type="button" aria-label="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
-      </button>
-    </div>
-    <p class="admin-sub">Toggle a video on to show it on the home page, or off to hide it from visitors. Hidden videos stay online at their direct link.</p>
-    <div class="manage-scroll">
-      <div id="manageList"><div class="manage-loading">Loading videos…</div></div>
-    </div>
-  </div>
-</div>
+  <script src="assets/watch.js" defer></script>
 
-<script src="assets/brand.js" defer></script>
-<script src="assets/admin.js" defer></script>
-<script src="assets/home.js" defer></script>
-<script src="assets/autocut.js" defer></script>
-<script src="assets/upload.js" defer></script>
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e69e5e307ed49d4a9a29bee8c1ca7b5","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+  <!-- Histats counter — async, end of body, never blocks render. -->
+  <script type="text/javascript">var _Hasync= _Hasync|| [];
+  _Hasync.push(['Histats.start', '1,5009868,4,0,0,0,00010000']);
+  _Hasync.push(['Histats.fasi', '1']);
+  _Hasync.push(['Histats.track_hits', '']);
+  (function() {
+  var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+  hs.src = ('//s10.histats.com/js15_as.js');
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+  })();</script>
+  <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5009868&amp;101" alt="" border="0"></a></noscript>
 </body>
 </html>
